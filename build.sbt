@@ -210,6 +210,14 @@ lazy val expressionProblem = project
       moduleName := "expression-problem"
   )
 
+// Subproyecto correspondiente a la clase 19: Introducción a Programación Funcional
+lazy val introFunctional = project
+  .in(file("19-intro-functional"))
+  .settings(
+      name := "19-intro-functional",
+      moduleName := "intro-functional"
+  )
+
 // -----------------------------------------------------------------------------
 // Proyecto raíz
 // -----------------------------------------------------------------------------
@@ -234,7 +242,8 @@ lazy val root = project
       tamagotchiExercise,
       designPatterns2,
       visitor,
-      expressionProblem
+      expressionProblem,
+      introFunctional
   ) // Agrega los subproyectos
   .settings(
       name := "clases-memes",
