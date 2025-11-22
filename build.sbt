@@ -218,6 +218,14 @@ lazy val introFunctional = project
       moduleName := "intro-functional"
   )
 
+// Subproyecto correspondiente a la clase 20: For-comprehensions
+lazy val forComprehensions = project
+  .in(file("20-for-comprehensions"))
+  .settings(
+      name := "20-for-comprehensions",
+      moduleName := "for-comprehensions"
+  )
+
 // -----------------------------------------------------------------------------
 // Proyecto raíz
 // -----------------------------------------------------------------------------
@@ -243,7 +251,8 @@ lazy val root = project
       designPatterns2,
       visitor,
       expressionProblem,
-      introFunctional
+      introFunctional,
+      forComprehensions
   ) // Agrega los subproyectos
   .settings(
       name := "clases-memes",
