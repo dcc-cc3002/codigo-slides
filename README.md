@@ -103,8 +103,8 @@ Si alguno falla, instala:
 ### Con Git (recomendado)
 
 ```bash
-git clone https://github.com/r8vnhill/clases-memes.git
-cd clases-memes
+git clone https://github.com/dcc-cc3002/codigo-slides.git
+cd codigo-slides
 git switch <year>/<semester>   # Ej: 2025/2 (Primavera 2025)
 ```
 > Usa la rama correspondiente al semestre (por ej., `2025/2` = Primavera 2025). Si estás en otra rama podrías ver contenido desactualizado.
