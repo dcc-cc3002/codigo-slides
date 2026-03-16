@@ -33,3 +33,35 @@ def sumUpTo(n: Int): Int =
  */
 def average(n: Int): Double =
   sumUpTo(n).toDouble / n
+
+/**
+ * Solución del ejercicio propuesto: suma recursiva sin estado mutable.
+ *
+ * Esta es la solución al ejercicio de reescribir sumUpTo sin estado mutable.
+ * En lugar de usar un loop for con una variable mutable `sum`, utilizamos
+ * recursión para acumular el resultado. La recursión es una alternativa a la
+ * iteración que no requiere estado mutable: cada llamada recursiva reduce el
+ * problema a uno más pequeño, hasta alcanzar el caso base (n = 0).
+ *
+ * Caso base: sumUpToRecursive(0) = 0
+ * Caso recursivo: sumUpToRecursive(n) = n + sumUpToRecursive(n - 1)
+ *
+ * @param n
+ *   el límite superior del rango (inclusivo)
+ * @return
+ *   la suma de todos los enteros desde 1 hasta n
+ */
+def sumUpToRecursive(n: Int): Int =
+  if n <= 0 then 0
+  else n + sumUpToRecursive(n - 1)
+
+/**
+ * Calcula el promedio usando la versión recursiva sin estado mutable.
+ *
+ * @param n
+ *   el número de elementos a promediar
+ * @return
+ *   el promedio de los números desde 1 hasta n
+ */
+def averageRecursive(n: Int): Double =
+  sumUpToRecursive(n).toDouble / n

@@ -35,7 +35,7 @@ trait Account:
  *
  * Ver slides: "Nivel de implementación" y "Crear objetos en Scala"
  */
-object AccountOfBigbyWolf extends Account:
+object AccountOfBigby extends Account:
   // Estado: Campos
   var balance: Int = 50_000
   val currency: String = "CLP"
@@ -68,5 +68,5 @@ object AccountOfBigbyWolf extends Account:
  * Account?"
  */
 @main def testAccount(): Unit =
-  val account: Account = AccountOfBigbyWolf
+  val account: Account = AccountOfBigby
   println(account.getBalance)

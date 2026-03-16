@@ -1,3 +1,4 @@
+//noinspection DuplicatedCode
 package cl.uchile.dcc
 package animals
 
