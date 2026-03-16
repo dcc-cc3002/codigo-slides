@@ -57,14 +57,14 @@ object AccountOfBigby extends Account:
  * Ejemplo que demuestra la buena práctica de programar contra interfaces.
  *
  * Nota que la variable "account" tiene tipo "Account" (la interfaz), no
- * "AccountOfBigbyWolf" (la implementación concreta). Esto permite que el
+ * "AccountOfBigby" (la implementación concreta). Esto permite que el
  * código sea flexible: podríamos cambiar la implementación sin modificar
  * este método.
  *
- * ¡Ambos son correctos! `AccountOfBigbyWolf` es un Account, pero cuando
+ * ¡Ambos son correctos! `AccountOfBigby` es un Account, pero cuando
  * programamos contra interfaces, usamos el tipo más general (Account).
  *
- * Ver slides: "Pregunta" - "¿account es de tipo `AccountOfBigbyWolf` o
+ * Ver slides: "Pregunta" - "¿account es de tipo `AccountOfBigby` o
  * Account?"
  */
 @main def testAccount(): Unit =
