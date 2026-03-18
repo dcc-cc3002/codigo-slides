@@ -6,55 +6,37 @@ import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.{BeforeEach, DisplayName, Test}
 
 /**
- * Unit tests for the [[Calculator]] class.
+ * Ejemplo didáctico de JUnit 5.x.
  *
- * ⚠️ Note for students:
- *
- * In professional projects, test classes are usually <b>not documented</b>
- * because:
- *   - Their purpose should be obvious from their names (e.g., `CalculatorTest`
- *     tests `Calculator`).
- *   - The test methods themselves are expected to be self-explanatory if well
- *     written.
- *
- * Here we include documentation and comments explicitly because this is for
- * **learning purposes**. The goal is to help you understand both *how tests are
- * structured* and *why we write them*.
+ * La slide 23 usa esta clase para mostrar la estructura básica de un test:
+ * importar el framework, preparar un fixture con `@BeforeEach` y marcar un
+ * método de prueba con `@Test`.
  */
 class CalculatorTest:
 
   /**
-   * A reference to the `Calculator` that we will test.
+   * Fixture del test.
    *
-   *   - We declare it as `var` because its value will change (a new Calculator
-   *     for each test).
-   *   - We wrap it in `Option` to represent that it might not yet be
-   *     initialized.
+   * Se deja como `Option` porque se inicializa en `setUp`, no al declarar el
+   * atributo.
    */
   var calculator: Option[Calculator] = None
 
   /**
-   * The [[BeforeEach]] annotation means:
-   *   - This method runs <b>before every test method</b> in this class.
-   *   - It ensures we start with a fresh `Calculator` for each test, so tests
-   *     do not interfere.
+   * Slide 23: `@BeforeEach` ejecuta este método antes de cada test.
+   *
+   * Así cada prueba parte con una calculadora nueva y no comparte estado con
+   * las demás.
    */
   @BeforeEach
   def setUp(): Unit =
     calculator = Some(new Calculator())
 
   /**
-   * A test method: checks that addition works correctly.
+   * Slide 23: `@Test` marca la lógica de la prueba y `@DisplayName` entrega
+   * una descripción legible en el runner.
    *
-   *   - [[Test]] marks this as a JUnit test.
-   *   - [[DisplayName]] gives the test a readable description when shown in
-   *     reports or IDEs.
-   *
-   * What it does:
-   *   - Calls `calculator.add(2, 3)`.
-   *   - Verifies that the result is `5`.
-   *   - If the result is not `5`, the test fails and shows the message `"2 +
-   *     3"`.
+   * Este caso verifica que `add(2, 3)` produzca `5`.
    */
   @Test
   @DisplayName("Test addition of two numbers")
