@@ -1,7 +1,7 @@
-# CC3002 – Código Complementario
+# CC3002 - Código Complementario
 ### Metodologías de Diseño y Programación
 
-Universidad de Chile – Departamento de Ciencias de la Computación
+Universidad de Chile - Departamento de Ciencias de la Computación
 
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-555555.svg)](https://creativecommons.org/licenses/by/4.0/)
 [![Scala](https://img.shields.io/badge/Scala-3.7.3-red?logo=scala)](https://www.scala-lang.org)
@@ -10,228 +10,143 @@ Universidad de Chile – Departamento de Ciencias de la Computación
 ![Status](https://img.shields.io/badge/status-educational-7E57C2)
 
 > [!NOTE]
-> Este repositorio reúne **ejemplos progresivos** usados en el curso **CC3002**. No necesitas experiencia previa en Scala ni Git: aquí aprenderás paso a paso conceptos de Programación Orientada a Objetos (OOP), buenas prácticas de diseño, pruebas automatizadas, genéricos e introducción a Programación Funcional (FP).
+> Este repositorio reúne ejemplos progresivos usados en el curso CC3002.
+> Está pensado para estudiantes que vienen de Python y están aprendiendo
+> OOP clásica en Scala por primera vez.
 
----
+## Inicio rápido
 
-## 📚 Contenido
-- [CC3002 – Código Complementario](#cc3002--código-complementario)
-    - [Metodologías de Diseño y Programación](#metodologías-de-diseño-y-programación)
-  - [📚 Contenido](#-contenido)
-  - [🧩 Descripción general](#-descripción-general)
-    - [Objetivo del curso](#objetivo-del-curso)
-    - [Progresión (resumen)](#progresión-resumen)
-    - [Stack técnico (implementado aquí)](#stack-técnico-implementado-aquí)
-    - [Estructura del repositorio](#estructura-del-repositorio)
-  - [⚙️ Requisitos](#️-requisitos)
-    - [¿Sin Git? Método ZIP](#sin-git-método-zip)
-    - [Con Git (recomendado)](#con-git-recomendado)
-  - [🔄 Actualizar tu copia](#-actualizar-tu-copia)
-  - [▶️ Ejecutar ejemplos (@main)](#️-ejecutar-ejemplos-main)
-  - [🧪 Testing rápido](#-testing-rápido)
-  - [🗂️ Índice de módulos](#️-índice-de-módulos)
-  - [📌 Notas pedagógicas importantes](#-notas-pedagógicas-importantes)
-  - [❓ FAQ rápida](#-faq-rápida)
-  - [🪪 Licencia](#-licencia)
-    - [GitHub (Descripción y Topics sugeridos)](#github-descripción-y-topics-sugeridos)
+### Opción A: con Git
 
----
+```bash
+git clone https://github.com/dcc-cc3002/codigo-slides.git
+cd codigo-slides
+git switch <year>/<semester>   # Ej: 2026/1 o 2025/2
+sbt compile
+```
 
-## 🧩 Descripción general
+### Opción B: con ZIP
 
-### Objetivo del curso
-
-Aprender a diseñar y programar usando OOP clásica en Scala 3, construyendo desde tipos y clases simples hasta patrones de diseño y técnicas básicas de FP.
-
-### Progresión (resumen)
-
-1. Tipado estático y primeras clases.
-2. Encapsulación, herencia y polimorfismo.
-3. Pruebas automatizadas (MUnit/JUnit).
-4. Abstracciones (traits / clases abstractas).
-5. Patrones de diseño fundamentales (Observer, State, Factory, Singleton, Visitor, etc.).
-6. Manejo de errores con excepciones.
-7. Genéricos (parametrización de tipos) y reutilización.
-8. Introducción a FP: inmutabilidad gradual, composición, `for-comprehensions`, Option/Future simplificados.
-
-### Stack técnico (implementado aquí)
-
-- Scala 3.7.3 sobre SBT 1.11.x (build multi-módulo).
-- JDK 17+ (probado con Azul JDK 25).
-- Pruebas: MUnit (todos los módulos) y JUnit 5 (módulo `03-testing`).
-- Formateo: Scalafmt, indentación significativa (sin llaves extensivas).
-
-### Estructura del repositorio
-
-- Cada carpeta numerada (`01-...`, `02-...`, etc.) es un subproyecto independiente.
-- El proyecto raíz compila y prueba todos simultáneamente.
-- No incluye las diapositivas oficiales; sólo código de apoyo y ejercicios.
-- Clases faltantes (12, 16) viven en: [dcc-cc3002/clases-2025-2](https://github.com/dcc-cc3002/clases-2025-2/tree/main).
+1. Descarga el repositorio con **Code > Download ZIP**.
+2. Descomprime la carpeta.
+3. Abre una terminal dentro del proyecto.
+4. Ejecuta `sbt compile`.
 
 > [!TIP]
-> Puedes ejecutar cada módulo sin conocer toda Scala: sigue las instrucciones de este README.
+> Abre la carpeta raíz del proyecto en IntelliJ IDEA o VS Code con Metals y
+> espera la importación SBT antes de ejecutar ejemplos o tests.
 
----
-
-## ⚙️ Requisitos
-
-No necesitas instalar todo antes de leer el código. Para ejecutar ejemplos locales:
-
-- **Java (JDK)**: versión 17 o superior.
-- **SBT**: 1.11.x.
-- **IDE recomendado**: IntelliJ IDEA + plugin Scala (o VS Code con Metals).
-
-Verifica tus versiones (Terminal):
-```bash
-java -version
-sbt --version
-```
-Si alguno falla, instala:
-- JDK: https://adoptium.net o Azul.
-- SBT: https://www.scala-sbt.org/download.html
-
-> [!NOTE]
-> No usamos configuraciones especiales de variables de entorno. Solo necesitas JDK y SBT visibles en tu PATH.
-
-### ¿Sin Git? Método ZIP
-
-1. Haz clic en el botón verde **Code** en GitHub.
-2. Selecciona **Download ZIP**.
-3. Descomprime y abre la carpeta en IntelliJ / VS Code.
-4. Abre una terminal dentro de la carpeta y ejecuta: `sbt compile`.
-
-### Con Git (recomendado)
+## Si solo quieres probar algo hoy
 
 ```bash
-git clone https://github.com/r8vnhill/clases-memes.git
-cd clases-memes
-git switch <year>/<semester>   # Ej: 2025/2 (Primavera 2025)
+sbt "project testing" test
+sbt "project forComprehensions" "show discoveredMainClasses"
 ```
-> Usa la rama correspondiente al semestre (por ej., `2025/2` = Primavera 2025). Si estás en otra rama podrías ver contenido desactualizado.
 
----
+> [!IMPORTANT]
+> En `sbt "project forComprehensions" ...`, `forComprehensions` es el id del
+> proyecto SBT, no el nombre de carpeta. La carpeta correspondiente es
+> `20-for-comprehensions/`.
 
-## 🔄 Actualizar tu copia
+## Qué es este repo
 
-Para traer cambios nuevos del semestre:
+Este repo contiene código de apoyo y ejercicios del curso, organizado por clase
+y por tema. Cada carpeta numerada (`01-...`, `02-...`, etc.) es un subproyecto
+independiente dentro de un build SBT multi-módulo.
+
+El foco es pedagógico: los ejemplos son deliberadamente pequeños y priorizan
+claridad sobre robustez o sofisticación. No es un repositorio de código de
+producción ni incluye las cátedras o diapositivas oficiales.
+
+## Cambiar o actualizar rama del semestre
+
+Usa siempre la rama del semestre que te corresponda. En este repositorio
+aparecen, por ejemplo, `2026/1` y `2025/2`.
+
 ```bash
 git fetch origin
-git switch <year>/<semester>        # Ej: git switch 2025/2
+git switch <year>/<semester>
 git pull --ff-only origin <year>/<semester>
 ```
-`--ff-only` evita merges accidentales y mantiene el historial limpio.
 
-Si hiciste cambios locales y aparece un mensaje de conflicto:
-1. Guarda tus archivos aparte.
-2. Restablece: `git reset --hard origin/<year>/<semester>` (⚠️ borra cambios no guardados).
-3. Vuelve a copiar tus modificaciones si las necesitas.
+Si no recuerdas el nombre exacto de la rama, puedes listar las remotas:
 
-Para confirmar el nombre de la rama del semestre, lista ramas remotas:
 ```bash
 git branch -r --list "origin/*/*"
 ```
 
----
+## Ejecutar ejemplos y tests
 
-## ▶️ Ejecutar ejemplos (@main)
+Compilar todo:
 
-Pasos generales:
 ```bash
-sbt compile                       # Compila todo
-sbt "project forComprehensions" run   # Ejecuta el runner por defecto del módulo
+sbt compile
 ```
 
-Listar todos los entry points detectados:
+Compilar o probar un módulo específico:
+
+```bash
+sbt "project testing" compile
+sbt "project testing" test
+```
+
+Listar entry points `@main` de un módulo:
+
 ```bash
 sbt "project forComprehensions" "show discoveredMainClasses"
 ```
 
 Ejecutar uno específico:
+
 ```bash
 sbt "project forComprehensions" "runMain cl.uchile.dcc.forcomprehensions.basics.basicsRunner"
 ```
 
-> Si no aparece ningún `@main`, revisa que hayas compilado (`sbt compile`) y estés en la **rama correcta**.
+> Si no aparece ningún `@main`, compila primero con `sbt compile` y confirma
+> que estás en la rama correcta del semestre.
 
----
+## Índice de módulos
 
-## 🧪 Testing rápido
+| Nº | Carpeta                     | Tema principal |
+|----|-----------------------------|----------------|
+| 01 | static-typing               | Tipado estático básico, valores y tipos |
+| 02 | intro-oop                   | Primera mirada a clases, objetos y métodos |
+| 03 | testing                     | Pruebas con MUnit y JUnit |
+| 04 | programming-to-abstractions | Programar contra abstracciones |
+| 05 | inheritance                 | Herencia simple y clases abstractas |
+| 06 | media-player-exercise       | Ejercicio aplicado de OOP |
+| 07 | overriding-overloading      | Overriding, sobrecarga y lookup |
+| 08 | encapsulation-and-liskov    | Encapsulación y principio de Liskov |
+| 09 | double-dispatch             | Doble despacho |
+| 10 | exceptions                  | Manejo de excepciones |
+| 11 | polymorphism                | Polimorfismo revisitado |
+| 13 | design-patterns-1           | Patrones introductorios: Observer, State y más |
+| 14 | tamagotchi-exercise         | Ejercicio Tamagotchi |
+| 15 | design-patterns-2           | Factory, Singleton, Composite, Flyweight, Null Object |
+| 17 | visitor                     | Patrón Visitor |
+| 18 | expression-problem          | Expression Problem, OOP vs FP |
+| 19 | intro-functional            | Introducción gradual a programación funcional |
+| 20 | for-comprehensions          | `for` como azúcar sobre `map`/`flatMap`/`withFilter` |
 
-```bash
-sbt test                      # Todos los módulos
-sbt "project testing" test    # Solo módulo de pruebas
-sbt "project testing" "testOnly *Calculator*"  # Patrón
-```
+Las clases faltantes del semestre no viven en este repo. Para material
+complementario adicional, revisa:
+[dcc-cc3002/clases-2025-2](https://github.com/dcc-cc3002/clases-2025-2/tree/main).
 
-MUnit se usa para la mayoría de ejemplos; JUnit 5 solo aparece en `03-testing` para comparar estilos.
+## Referencia rápida
 
----
+- Scala: `3.7.3`
+- SBT: `1.11.x`
+- JDK: `17+`
+- Tests: MUnit en todos los módulos, JUnit 5 en `03-testing`
+- Alias útil: `sbt ci` ejecuta `;clean;compile;test`
+- Documento histórico del curso:
+  [docs/CC3002-programa-primavera-2021-transcripcion.md](docs/CC3002-programa-primavera-2021-transcripcion.md)
 
-## 🗂️ Índice de módulos
+## Licencia
 
-| Nº | Carpeta                     | Tema principal                                                       |
-|----|-----------------------------|----------------------------------------------------------------------|
-| 01 | static-typing               | Tipado estático básico, valores y tipos                              |
-| 02 | intro-oop                   | Primera mirada a clases, objetos y métodos                           |
-| 03 | testing                     | Pruebas con MUnit/JUnit, aserciones y fixtures                       |
-| 04 | programming-to-abstractions | Programar contra abstracciones (traits / interfaces)                 |
-| 05 | inheritance                 | Herencia simple y clases abstractas                                  |
-| 06 | media-player-exercise       | Ejercicio aplicado OOP (modelo reproductor)                          |
-| 07 | overriding-overloading      | Diferencias entre overriding y sobrecarga                            |
-| 08 | encapsulation-and-liskov    | Encapsulación y principio de sustitución (LSP)                       |
-| 09 | double-dispatch             | Doble despacho y resolución dinámica                                 |
-| 10 | exceptions                  | Manejo de excepciones, propagación controlada                        |
-| 11 | polymorphism                | Polimorfismo revisitado y refinado                                   |
-| 13 | design-patterns-1           | Observer, State y otros patrones introductorios                      |
-| 14 | tamagotchi-exercise         | Integración State + Observer en ejercicio Tamagotchi                 |
-| 15 | design-patterns-2           | Factory, Singleton, Composite, Flyweight, Null Object                |
-| 17 | visitor                     | Patrón Visitor y doble despacho avanzado                             |
-| 18 | expression-problem          | Discusión OOP vs FP, extensibilidad y genéricos                      |
-| 19 | intro-functional            | Primeros pasos en FP: colecciones, funciones como valores            |
-| 20 | for-comprehensions          | Traducción for ↔ map/flatMap/withFilter, Option/Future simplificados |
+Este material se distribuye bajo **CC BY 4.0**.
+Texto completo:
+[creativecommons.org/licenses/by/4.0](https://creativecommons.org/licenses/by/4.0/).
 
-> Clases 12 y 16: ver repositorio externo ya enlazado.
-
-**Genéricos:** aparecen de forma gradual (parámetros de tipo) a partir de módulos medios para mostrar reutilización segura sin duplicar código.
-
-**Intro FP:** módulos 18–20 introducen patrones funcionales básicos sin abandonar el enfoque OOP (composición, manejo de efectos simples, for-comprehensions).
-
----
-
-## 📌 Notas pedagógicas importantes
-
-1. **OOP clásica primero:** evitamos al inicio características avanzadas de Scala (pattern matching extensivo, `enum`, implicits/given, for-comprehensions complejos) para no saturar.
-2. **Código en inglés, comentarios en español:** esto simula entornos reales manteniendo claridad didáctica.
-3. **Genéricos:** se introducen para mostrar cómo parametrizar tipos sin sacrificar legibilidad.
-4. **FP progresiva:** partimos de colecciones y funciones simples; luego `for-comprehensions` como azúcar sobre `map/flatMap/withFilter`.
-5. **Patrones de diseño:** se implementan versiones simplificadas con foco en entender el rol de cada patrón antes de optimizar.
-6. **Ejemplos intencionalmente pequeños:** favorecen lectura rápida sobre eficiencia.
-
-> [!WARNING]
-> El `build.sbt` incluye configuraciones avanzadas (scalacOptions, formato, IDE). **No lo tomes como plantilla de producción.**
-
-Programa histórico: [transcripción 2021](docs/CC3002-programa-primavera-2021-transcripcion.md) (puede estar desactualizado en algunos nombres de clases).
-
----
-
-## ❓ FAQ rápida
-
-**No se reconoce `sbt`:** Asegura que instalaste SBT y reinicia la terminal. En Windows verifica que el ejecutable esté en PATH.
-
-**No veo mains al ejecutar `show discoveredMainClasses`:** Compila primero (`sbt compile`) y confirma rama `2025/2`.
-
-**Error de versión Java:** Usa JDK 17+. Si tienes JDK 8 aparecerán errores de sintaxis Scala 3.
-
-**IntelliJ no indexa:** Abre el proyecto raíz, espera la importación SBT y sincroniza. Si falla, borra `.idea` y reimporta.
-
-**Conflictos al actualizar la rama:** Usa `git pull --ff-only`. Si ya hiciste commits locales no deseados, guarda tus archivos y resetea (`git reset --hard origin/2025/2`).
-
-## 🪪 Licencia
-
-Este material se distribuye bajo **CC BY 4.0**. Texto completo: [creativecommons.org/licenses/by/4.0](https://creativecommons.org/licenses/by/4.0/).
-
-> Uso estrictamente educativo: algunas implementaciones se simplifican para destacar conceptos sobre rendimiento o robustez extrema.
-
----
-
-¿Comentarios o mejoras? Abre un issue o discútelo en clase.
+> Uso estrictamente educativo: algunas implementaciones se simplifican para
+> destacar conceptos por sobre rendimiento o robustez extrema.
