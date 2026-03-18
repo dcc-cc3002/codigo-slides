@@ -33,8 +33,8 @@ Los estudiantes aprenden gradualmente, por lo que **NO USES** estos conceptos av
   ```scala
   class Point(val x: Int, val y: Int):
     /** Mueve el punto por un desplazamiento dado */
-    def moveBy(dx: Int, dy: Int): Point = 
-      new Point(x + dx, y + dy)
+    def moveBy(deltaX: Int, dy: Int): Point = 
+      new Point(x + deltaX, y + dy)
   ```
 
 ## Arquitectura Multi-Módulo

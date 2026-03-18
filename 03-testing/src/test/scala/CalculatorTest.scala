@@ -1,49 +1,34 @@
 package cl.uchile.dcc
 
 /**
- * Unit tests for the [[Calculator]] class, written with the MUnit testing
- * framework.
+ * Ejemplo didáctico de MUnit.
  *
- * ⚠️ Note for students:
- *
- * In professional projects, test classes are usually **not documented**
- * because:
- *   - The purpose of a test is normally clear from its class and method names.
- *   - Good tests should be self-explanatory.
- *
- * Here we add documentation for **teaching purposes**, to explain how tests are
- * structured and why they are written this way.
+ * La slide 24 usa esta clase para mostrar la forma básica de un test en
+ * MUnit: extender `munit.FunSuite`, preparar el fixture sobreescribiendo
+ * `beforeEach` y escribir un test con nombre descriptivo.
  */
 class CalculatorTest extends munit.FunSuite:
 
   /**
-   * A reference to the `Calculator` we will test.
+   * Fixture del test.
    *
-   *   - Declared as `var` so we can reset it before each test.
-   *   - It starts as `None`, but is initialized fresh before every test run.
+   * Se deja como `Option` porque se inicializa antes de cada prueba.
    */
   var calculator: Option[Calculator] = None
 
   /**
-   * `beforeEach` is a lifecycle hook provided by MUnit.
+   * Slide 24: en MUnit no usamos anotaciones para el setup.
    *
-   *   - This method is automatically executed <b>before each test case</b>.
-   *   - Ensures that each test starts with a new, clean `Calculator` instance.
-   *   - Prevents one test from accidentally affecting another.
+   * En su lugar, sobreescribimos `beforeEach` para partir cada test con una
+   * calculadora nueva.
    */
   override def beforeEach(context: BeforeEach): Unit =
     calculator = Some(new Calculator())
 
   /**
-   * A test case that checks if addition works correctly.
+   * Slide 24: `test("...")` define un caso de prueba.
    *
-   *   - `test("...")` defines a single test with a descriptive name.
-   *   - Inside, we use `assertEquals(expected, actual, clue)`:
-   *     - `expected`: the result we *want* (5).
-   *     - `actual`: the result from running the code (`calculator.add(2, 3)`).
-   *     - `clue`: an optional message shown if the test fails, useful for
-   *       debugging.
+   * El nombre del test describe el comportamiento esperado.
    */
-  test("Test addition of two numbers") {
+  test("Test addition of two numbers"):
     assertEquals(5, calculator.get.add(2, 3), "2 + 3")
-  }
