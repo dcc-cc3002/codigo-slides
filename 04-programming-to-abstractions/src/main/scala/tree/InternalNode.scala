@@ -1,6 +1,7 @@
 package cl.uchile.dcc
 package tree
 
+// Nodo interno: delega el trabajo recursivo a sus subarboles.
 class InternalNode(val value: Int, val left: Tree, val right: Tree)
     extends Tree:
   override def sum: Int = value + left.sum + right.sum

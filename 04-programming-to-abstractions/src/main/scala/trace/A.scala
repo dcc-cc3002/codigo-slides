@@ -15,4 +15,6 @@ class A(val x: Int):
   print("d")
 
 @main def main(): Unit =
-  new A(): Unit
+  // El orden de impresion es: a, luego d, luego b y finalmente c.
+  new A()
+  println()

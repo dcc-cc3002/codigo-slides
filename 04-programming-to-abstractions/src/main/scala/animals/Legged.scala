@@ -1,7 +1,9 @@
 package cl.uchile.dcc
 package animals
 
+// Un trait funciona como contrato: cualquier clase que lo implemente
+// promete proveer estos miembros.
 trait Legged:
-  val numLegs: Int // abstract: must be provided by the class
+  val numLegs: Int
 
-  def walk(): Unit // abstract: must be provided by the class
+  def walk(): Unit

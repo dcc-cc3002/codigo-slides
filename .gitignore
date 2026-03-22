@@ -69,6 +69,11 @@ hs_err_pid*
 # Android/Gradle/CMake (if you don’t use them, keep; otherwise trim)
 # -----------------------------
 /cmake-build-*/
+/04-programming-to-abstractions/cmake-build/
+/04-programming-to-abstractions/cmake-build-*/
+/04-programming-to-abstractions/CMakeFiles/
+/04-programming-to-abstractions/CMakeCache.txt
+/04-programming-to-abstractions/compile_commands.json
 
 # File created using '.gitignore Generator' for Visual Studio Code: https://bit.ly/vscode-gig
 # Created by https://www.toptal.com/developers/gitignore/api/windows,visualstudiocode

@@ -132,6 +132,9 @@ Las clases faltantes del semestre no viven en este repo. Para material
 complementario adicional, revisa:
 [dcc-cc3002/clases-2025-2](https://github.com/dcc-cc3002/clases-2025-2/tree/main).
 
+Para el módulo 04, revisa su documentación específica en
+[04-programming-to-abstractions/README.md](04-programming-to-abstractions/README.md).
+
 ## Referencia rápida
 
 - Scala: `3.7.3`
