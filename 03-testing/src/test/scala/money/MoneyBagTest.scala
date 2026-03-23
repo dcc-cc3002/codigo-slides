@@ -28,15 +28,20 @@ class MoneyBagTest extends munit.FunSuite:
     _mb3 = Some(new MoneyBag(new Money(12, "CLP"), new Money(7, "USD")))
     _mb4 = Some(new MoneyBag(new Money(7, "USD"), new Money(12, "CLP")))
 
-  test("Igualdad de MoneyBag"):
-    assertEquals(_mb1, _mb1, "Debe ser reflexiva")
-    assertEquals(_mb1, _mb3, "Debe ser simétrica")
-    assertEquals(_mb3, _mb1, "Debe ser simétrica")
-    assert(
-        _mb1 == _mb3 && _mb3 == _mb4 && _mb1 == _mb4,
-        "Debe ser transitiva"
-    )
-    assertNotEquals(_mb1, _mb2, "Distintos dan false")
+  test("Igualdad reflexiva de MoneyBag"):
+    assertEquals(_mb1, _mb1)
+
+  test("Igualdad simétrica de MoneyBag"):
+    assertEquals(_mb1, _mb3) // a == b
+    assertEquals(_mb3, _mb1) // <==> b == a
+
+  test("Igualdad transitiva de MoneyBag"):
+    assertEquals(_mb1, _mb3) // a == b
+    assertEquals(_mb3, _mb4) // && b == c
+    assertEquals(_mb1, _mb4) // <==> a == c
+
+  test("Bolsas distintas no son iguales"):
+    assertNotEquals(_mb1, _mb2)
 
   /*
    * Slide 50: este test anticipa la suma entre distintas divisas.
