@@ -2,7 +2,7 @@
 #import exercise: example, project, subtask, task, todo
 
 #show: project.with(
-  title: "Clase 14: Ejercicio - Tamagotchi",
+  title: "Clase 13: Ejercicio - Tamagotchi",
 
   university: [Universidad de Chile],
   faculty: [Facultad de Ciencias Físicas y Matemáticas],

@@ -46,7 +46,7 @@ sbt "project forComprehensions" "show discoveredMainClasses"
 > [!IMPORTANT]
 > En `sbt "project forComprehensions" ...`, `forComprehensions` es el id del
 > proyecto SBT, no el nombre de carpeta. La carpeta correspondiente es
-> `20-for-comprehensions/`.
+> `18-for-comprehensions/`.
 
 ## Qué es este repo
 
@@ -107,28 +107,28 @@ sbt "project forComprehensions" "runMain cl.uchile.dcc.forcomprehensions.basics.
 
 ## Índice de módulos
 
-| Nº | Carpeta                     | Tema principal |
-|----|-----------------------------|----------------|
-| 01 | static-typing               | Tipado estático básico, valores y tipos |
-| 02 | intro-oop                   | Primera mirada a clases, objetos y métodos |
-| 03 | testing                     | Pruebas con MUnit y JUnit |
-| 04 | programming-to-abstractions | Programar contra abstracciones |
-| 05 | inheritance                 | Herencia simple y clases abstractas |
-| 06 | media-player-exercise       | Ejercicio aplicado de OOP |
-| 07 | overriding-overloading      | Overriding, sobrecarga y lookup |
-| 08 | encapsulation-and-liskov    | Encapsulación y principio de Liskov |
-| 09 | double-dispatch             | Doble despacho |
-| 10 | exceptions                  | Manejo de excepciones |
-| 11 | polymorphism                | Polimorfismo revisitado |
-| 13 | design-patterns-1           | Patrones introductorios: Observer, State y más |
-| 14 | tamagotchi-exercise         | Ejercicio Tamagotchi |
-| 15 | design-patterns-2           | Factory, Singleton, Composite, Flyweight, Null Object |
-| 17 | visitor                     | Patrón Visitor |
-| 18 | expression-problem          | Expression Problem, OOP vs FP |
-| 19 | intro-functional            | Introducción gradual a programación funcional |
-| 20 | for-comprehensions          | `for` como azúcar sobre `map`/`flatMap`/`withFilter` |
+| Nº  | Carpeta                     | Tema principal                                        |
+| --- | --------------------------- | ----------------------------------------------------- |
+| 01  | static-typing               | Tipado estático básico, valores y tipos               |
+| 02  | intro-oop                   | Primera mirada a clases, objetos y métodos            |
+| 03  | testing                     | Pruebas con MUnit y JUnit                             |
+| 04  | programming-to-abstractions | Programar contra abstracciones                        |
+| 05  | inheritance                 | Herencia simple y clases abstractas                   |
+| 05x | media-player-exercise       | Material extra/opcional: ejercicio aplicado de OOP    |
+| 06  | overriding-overloading      | Overriding, sobrecarga y lookup                       |
+| 07  | encapsulation-and-liskov    | Encapsulación y principio de Liskov                   |
+| 08  | double-dispatch             | Doble despacho                                        |
+| 09  | exceptions                  | Manejo de excepciones                                 |
+| 10  | polymorphism                | Polimorfismo revisitado                               |
+| 12  | design-patterns-1           | Patrones introductorios: Observer, State y más        |
+| 13  | tamagotchi-exercise         | Ejercicio Tamagotchi                                  |
+| 14  | design-patterns-2           | Factory, Singleton, Composite, Flyweight, Null Object |
+| 15  | visitor                     | Patrón Visitor                                        |
+| 16  | expression-problem          | Expression Problem, OOP vs FP                         |
+| 17  | intro-functional            | Introducción gradual a programación funcional         |
+| 18  | for-comprehensions          | `for` como azúcar sobre `map`/`flatMap`/`withFilter`  |
 
-Las clases faltantes del semestre no viven en este repo. Para material
+Las clases faltantes del semestre no siempre viven en este repo. Para material
 complementario adicional, revisa:
 [dcc-cc3002/clases-2025-2](https://github.com/dcc-cc3002/clases-2025-2/tree/main).
 

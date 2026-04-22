@@ -1,77 +1,171 @@
-# Instrucciones para Agentes de IA - CC3002
+# Instrucciones para Agentes de IA — CC3002
 
-## Contexto del Proyecto
+## Propósito
 
-Este es un repositorio **educativo** con material complementario para el curso universitario CC3002 (Metodologías de Diseño y Programación) de la Universidad de Chile. Está dirigido a estudiantes undergraduate que vienen de Python y están aprendiendo OOP clásica en Scala por primera vez.
+Este repositorio contiene material **educativo** de apoyo para el curso universitario **CC3002: Metodologías de Diseño y Programación** de la Universidad de Chile.
 
-## Restricciones de Lenguaje y Conceptos
+El material está dirigido a estudiantes de **pregrado** que vienen de Python y están aprendiendo **programación orientada a objetos clásica en Scala** por primera vez.
 
-### Progresión Pedagógica (CRÍTICO)
+El objetivo de estas instrucciones es asegurar que cualquier contenido generado o modificado por un agente de IA:
 
-Los estudiantes aprenden gradualmente, por lo que **NO USES** estos conceptos avanzados de Scala en módulos tempranos:
+- respete la **progresión pedagógica** del curso;
+- use un nivel de complejidad adecuado para estudiantes principiantes en Scala;
+- mantenga coherencia con el estilo y las convenciones del repositorio;
+- no introduzca abstracciones o técnicas que el curso aún no ha enseñado.
 
-- ❌ `case class` / `sealed trait` / `enum`
-- ❌ `final` modificador
-- ❌ Pattern matching (`match`/`case`)
-- ❌ For comprehensions
-- ❌ Programación funcional pura (inmutabilidad estricta, monads)
-- ❌ Implicits o given/using
+---
 
-**SÍ USA** conceptos clásicos de OOP:
+## Prioridad de decisión
 
-- ✅ `class` / `trait` / `abstract class` / `object` (companion)
-- ✅ Herencia simple con `extends`
-- ✅ Polimorfismo y sobrescritura (`override`)
-- ✅ Encapsulación (private, getters/setters explícitos)
-- ✅ Constructores con parámetros
+Cuando haya tensión entre dos criterios, usa este orden de prioridad:
 
-### Idioma del Código
+1. **Respetar la progresión pedagógica del curso.**
+2. **Favorecer claridad didáctica por sobre sofisticación técnica.**
+3. **Mantener coherencia con el estilo ya presente en el repositorio.**
+4. **Usar Scala idiomático solo cuando no choque con los puntos anteriores.**
 
-- **Código en inglés**: nombres de clases, métodos, variables, strings
-- **Comentarios y documentación en español**: explicaciones, docstrings, mensajes educativos
-- **Ejemplo correcto**:
-  ```scala
-  class Point(val x: Int, val y: Int):
-    /** Mueve el punto por un desplazamiento dado */
-    def moveBy(deltaX: Int, dy: Int): Point = 
-      new Point(x + deltaX, y + dy)
-  ```
+En particular:
 
-## Arquitectura Multi-Módulo
+- no optimices un ejemplo a costa de volverlo menos enseñable;
+- no introduzcas abstracciones avanzadas “porque son mejores” si el curso aún no las cubre;
+- no trates este repositorio como si fuera una librería de producción.
 
-### Estructura SBT
+---
 
-El proyecto usa **subproyectos SBT** (uno por clase del semestre). Cada carpeta numerada es independiente:
+## Alcance del repositorio
 
+Este repositorio contiene:
+
+- código de ejemplo;
+- ejercicios y material complementario;
+- tests con propósito didáctico;
+- implementaciones simplificadas de conceptos y patrones.
+
+Este repositorio **no** contiene las cátedras del curso.  
+Si falta material, parte de él puede estar en otro repositorio:
+
+`https://github.com/dcc-cc3002/clases-2025-2/tree/main`
+
+---
+
+## Restricciones pedagógicas de Scala
+
+### Regla principal
+
+Los estudiantes aprenden de forma gradual.  
+Por lo tanto, en módulos tempranos **no debes introducir** características avanzadas de Scala que aún no forman parte de la progresión del curso.
+
+### No usar en etapas tempranas
+
+- `case class`
+- `sealed trait`
+- `enum`
+- `final`
+- pattern matching (`match` / `case`)
+- for comprehensions
+- programación funcional pura como foco principal
+  - inmutabilidad estricta como dogma
+  - monads
+- `given` / `using`
+- implicits
+
+### Sí usar
+
+Prioriza conceptos clásicos de OOP:
+
+- `class`
+- `trait`
+- `abstract class`
+- `object` y companions
+- herencia simple con `extends`
+- polimorfismo y sobrescritura con `override`
+- encapsulamiento
+- constructores con parámetros
+- getters y setters explícitos cuando tengan valor pedagógico
+
+### Criterio de simplificación
+
+Prefiere siempre:
+
+- ejemplos pequeños;
+- nombres concretos y legibles;
+- una idea nueva por vez;
+- código que sirva para enseñar, no para impresionar.
+
+---
+
+## Idioma del código y la documentación
+
+Usa esta convención de forma consistente:
+
+- **Código en inglés**
+  - nombres de clases;
+  - nombres de métodos;
+  - nombres de variables;
+  - strings del ejemplo, cuando corresponda.
+- **Comentarios y documentación en español**
+  - explicaciones;
+  - docstrings;
+  - mensajes educativos;
+  - instrucciones para estudiantes.
+
+### Ejemplo
+
+```scala
+class Point(val x: Int, val y: Int):
+  /** Mueve el punto por un desplazamiento dado */
+  def moveBy(deltaX: Int, dy: Int): Point =
+    new Point(x + deltaX, y + dy)
 ```
+
+---
+
+## Organización del proyecto
+
+### Estructura general
+
+El proyecto está organizado como una colección de **subproyectos SBT**, típicamente uno por clase o unidad temática del semestre.
+
+Cada carpeta numerada es independiente.
+
+```text
 01-static-typing/          # Clase 1: tipado estático
-02-intro-oop/              # Clase 2: intro a OOP
+02-intro-oop/              # Clase 2: introducción a OOP
 03-testing/                # Clase 3: testing con MUnit
 ...
-13-design-patterns-1/      # Clase 13: patrones Observer, State, etc.
-15-design-patterns-2/      # Clase 15: patrones Singleton, Factory, etc.
-17-visitor/                # Clase 17: patrón Visitor
+05x-media-player-exercise/ # Material extra u opcional
+12-design-patterns-1/      # Observer, State, etc.
+14-design-patterns-2/      # Singleton, Factory, etc.
+15-visitor/                # Visitor
 ```
 
-**Lecciones faltantes** (12, 16, etc.) están en otro repo: https://github.com/dcc-cc3002/clases-2025-2/tree/main
+### Estructura interna típica de un módulo
 
-### Organización del Código
-
-```
+```text
 <módulo>/
   src/
-    main/scala/           # Código de ejemplo
-      <paquete>/          # Organizado por concepto (geometry/, observer/, etc.)
-    test/scala/           # Tests con MUnit
+    main/scala/
+      <paquete>/
+    test/scala/
 ```
 
-- Paquete base: `cl.uchile.dcc`
-- Subpaquetes organizan conceptos: `geometry`, `observer`, `state`, `singleton`, etc.
-- **No hay cátedras incluidas** (solo código de soporte)
+### Convenciones de paquetes
 
-## Comandos de Desarrollo
+- paquete base: `cl.uchile.dcc`
+- subpaquetes por concepto, por ejemplo:
+  - `geometry`
+  - `observer`
+  - `state`
+  - `singleton`
 
-### Compilar y Ejecutar
+No asumas una arquitectura de producción.  
+La organización existe para apoyar el aprendizaje.
+
+---
+
+## Comandos de desarrollo
+
+### Compilar
 
 ```bash
 # Compilar todo el proyecto
@@ -79,15 +173,19 @@ sbt compile
 
 # Compilar un módulo específico
 sbt "project testing" compile
+```
 
+### Ejecutar
+
+```bash
 # Ejecutar un módulo con @main
 sbt "project designPatterns2" run
 
-# Ver todos los entry points disponibles
+# Ver entry points disponibles
 sbt "project <nombre>" "show discoveredMainClasses"
 ```
 
-### Testing
+### Tests
 
 ```bash
 # Ejecutar todos los tests
@@ -99,19 +197,42 @@ sbt "project testing" test
 # Test específico
 sbt "project testing" "testOnly cl.uchile.dcc.CalculatorTest"
 
-# Test con patrón
+# Tests por patrón
 sbt "project testing" "testOnly *Calculator*"
 ```
 
-### Alias Útiles
+### Alias útil
 
-- `sbt ci` → `;clean;compile;test` (integración continua)
+- `sbt ci` → `;clean;compile;test`
 
-## Convenciones de Código
+---
 
-### Testing con MUnit
+## Convenciones de código
 
-Los tests extienden `munit.FunSuite` y usan:
+### Estilo general
+
+- usa la sintaxis de **indentación significativa** de Scala 3;
+- evita complejidad incidental;
+- usa `val` por defecto cuando sea natural;
+- usa `var` cuando tenga valor pedagógico o sea necesario para el ejemplo;
+- usa companions cuando ayuden a enseñar patrones como Singleton o Factory;
+- usa getters y setters explícitos cuando la mutabilidad sea parte de lo que se quiere enseñar.
+
+### Formato
+
+- el repositorio usa `scalafmt`;
+- la configuración privilegia líneas cortas, pensadas también para slides;
+- no introduzcas estilos de formato que contradigan lo ya usado en el proyecto.
+
+---
+
+## Testing
+
+### Framework principal
+
+Los tests usan principalmente **MUnit**.
+
+Patrón esperado:
 
 ```scala
 class CalculatorTest extends munit.FunSuite:
@@ -120,47 +241,24 @@ class CalculatorTest extends munit.FunSuite:
   override def beforeEach(context: BeforeEach): Unit =
     calculator = Some(new Calculator())
 
-  test("descripción del test") {
+  test("descripción del test"):
     assertEquals(expected, actual, "mensaje de fallo opcional")
-  }
 ```
 
-**Nota**: Los tests incluyen documentación **solo con fines pedagógicos** (en producción no se documentan tests).
+### Criterio pedagógico
 
-### Patrones de Diseño
+En este repositorio, los tests pueden incluir comentarios o explicaciones con fines didácticos.
 
-Los patrones se implementan de forma **didáctica** para enseñar OOP clásica:
+No asumas estándares de una base de código industrial.  
+Aquí los tests también enseñan.
 
-- **Observer**: Ver `13-design-patterns-1/src/main/scala/observer/`
-  - Usa `Subject[T]` trait con `attach`/`detach`/`notifyObservers`
-  - `BaseSubject` usa `mutable.LinkedHashSet` para mantener orden
-  - Observers implementan `update(subject: Subject[T], notification: T)`
-- **State**: Ver `13-design-patterns-1/src/main/scala/state/` y ejemplo completo en `14-tamagotchi-exercise/`
-  - Estado abstracto define métodos que lanzan `InvalidTransitionException` por defecto
-  - Estados concretos sobrescriben solo transiciones válidas
-  - Controller mantiene referencia mutable al estado actual
-  - Ejemplo Tamagotchi combina State + Observer para notificar transiciones
-- **Singleton**: Ver `15-design-patterns-2/src/main/scala/singleton/DatabaseConnection.scala`
-  - Usa `private` constructor + `object` companion
-  - `var instance: Option[T]` con lazy initialization en `getInstance`
-- **Factory**: Ver `15-design-patterns-2/src/main/scala/factory/`
-  - Factory trait con método `make(): T`
-  - Factories concretas encapsulan lógica de construcción
-- **Visitor**: Ver `17-visitor/src/main/scala/`
-  - Elementos tienen `accept(visitor: Visitor)`
-  - Visitor define `visit*` para cada tipo concreto
+---
 
-### Estilo de Código
+## Entry points ejecutables
 
-- **Indentación significativa** de Scala 3 (sin llaves)
-- Scalafmt configurado (`.scalafmt.conf`): max 80 columnas (optimizado para slides), align enabled
-- Companion objects para singletons/factories
-- Inmutabilidad preferida pero **no forzada** (`val` over `var` cuando sea natural)
-- Getters/setters explícitos cuando se necesita mutabilidad: `def state_=(s: T): Unit`
+Usa `@main def ...` para crear ejemplos ejecutables cuando eso ayude a explorar un concepto.
 
-## Entry Points Ejecutables
-
-Usa `@main def <nombre>(): Unit` para crear ejemplos ejecutables:
+Ejemplo:
 
 ```scala
 @main def visitorExample(): Unit =
@@ -170,47 +268,178 @@ Usa `@main def <nombre>(): Unit` para crear ejemplos ejecutables:
   println(s"Total fees: ${feeCalc.totalFee}")
 ```
 
-## Manejo de Errores en Patrones
+Prioriza entry points pequeños, autocontenidos y fáciles de correr en clase o en laboratorio.
 
-El proyecto usa excepciones para validar transiciones inválidas en State:
+---
+
+## Implementación de patrones de diseño
+
+Los patrones en este repositorio deben entenderse como implementaciones **didácticas**, no como plantillas de producción.
+
+### Observer
+
+Referencia: `12-design-patterns-1/src/main/scala/observer/`
+
+Características esperadas:
+
+- `Subject[T]` como `trait`;
+- operaciones como `attach`, `detach` y `notifyObservers`;
+- `BaseSubject` puede usar `mutable.LinkedHashSet` para preservar orden;
+- observers con un método del estilo:
+  `update(subject: Subject[T], notification: T)`.
+
+### State
+
+Referencia: `12-design-patterns-1/src/main/scala/state/`  
+Ejemplo más completo: `13-tamagotchi-exercise/`
+
+Características esperadas:
+
+- estado abstracto con comportamiento por defecto para transiciones inválidas;
+- estados concretos que sobrescriben solo transiciones válidas;
+- controlador con referencia mutable al estado actual;
+- integración con Observer cuando ayude a mostrar cambios de estado.
+
+### Singleton
+
+Referencia: `14-design-patterns-2/src/main/scala/singleton/DatabaseConnection.scala`
+
+Características esperadas:
+
+- constructor `private`;
+- `object` companion;
+- inicialización diferida mediante `Option[T]` o mecanismo equivalente simple.
+
+### Factory
+
+Referencia: `14-design-patterns-2/src/main/scala/factory/`
+
+Características esperadas:
+
+- `trait` de fábrica con un método como `make(): T`;
+- factorías concretas que encapsulan la lógica de construcción.
+
+### Visitor
+
+Referencia: `15-visitor/src/main/scala/`
+
+Características esperadas:
+
+- elementos con `accept(visitor: Visitor)`;
+- visitor con un método `visit*` por tipo concreto.
+
+---
+
+## Manejo de errores
+
+En algunos ejemplos, especialmente en State, se usan **excepciones** para representar transiciones inválidas.
+
+Ejemplo:
 
 ```scala
-// En estado concreto
 def invalidTransition(): Unit =
   throw new InvalidTransitionException("Transición no permitida")
+```
 
-// En controller
+y luego:
+
+```scala
 private def safeRun(op: () => Unit): Unit =
   try op()
   catch case e: InvalidTransitionException => println(e.getMessage)
 ```
 
-Combinar con Observer permite notificar errores sin terminar la ejecución (ver `14-tamagotchi-exercise`).
+Esto está permitido porque sirve al objetivo pedagógico del ejemplo.
 
-## Dependencias y Herramientas
+No reemplaces automáticamente este enfoque por alternativas más sofisticadas si eso complica la enseñanza.
 
-- **Scala**: 3.7.3 (última versión estable)
+---
+
+## Dependencias y herramientas
+
+- **Scala**: 3.7.3
 - **SBT**: 1.11.x
-- **JDK**: Java 17+ (probado con Azul JDK 25)
-- **Testing**: MUnit (todos los módulos) + JUnit 5 (solo `03-testing`)
-- **IDE**: IntelliJ IDEA recomendado (plugin `sbt-ide-settings` configurado)
+- **JDK**: Java 17 o superior
+- **Testing**:
+  - MUnit en todos los módulos;
+  - JUnit 5 solo en `03-testing`
+- **IDE recomendado**: IntelliJ IDEA
 
-## Nivel de los Estudiantes
+---
 
-- **Background**: Algoritmos y estructuras de datos en Python (CC3001)
-- **Primera vez con**: tipado estático, compiladores, IDEs profesionales
-- **Mínimo común denominador**: notebooks de Jupyter
-- **Objetivo**: Aprender OOP clásica con ejemplos prácticos y tests
+## Perfil de estudiantes
 
-## Qué NO Hacer
+Asume este perfil al generar o modificar contenido:
 
-- ❌ Usar características avanzadas de Scala antes de tiempo (ver sección de restricciones)
-- ❌ Asumir que es código de producción (tiene simplificaciones deliberadas)
-- ❌ Referenciar contenido de las cátedras (no están en este repo)
-- ❌ Documentar exhaustivamente (es material didáctico, no librería pública)
+- vienen de cursos previos con Python;
+- manejan algoritmos y estructuras de datos;
+- están viendo por primera vez:
+  - tipado estático;
+  - compilación;
+  - tooling profesional;
+  - OOP en Scala;
+- su punto de partida técnico puede ser relativamente básico.
 
-## Referencias Clave
+### Implicancias prácticas
 
-- **build.sbt**: Configuración completa con comentarios (NO usar como referencia de producción)
-- **README.md**: Instrucciones de uso y estructura general
-- **docs/CC3002-programa-primavera-2021-transcripcion.md**: Programa histórico del curso
+Por eso debes:
+
+- evitar saltos conceptuales bruscos;
+- explicar con ejemplos concretos;
+- no asumir familiaridad con jerga de Scala;
+- preferir una progresión incremental.
+
+---
+
+## Qué hacer cuando modifiques contenido
+
+Si agregas o editas código, asegúrate de que:
+
+- el ejemplo siga siendo coherente con el módulo donde vive;
+- no introduzca conceptos aún no enseñados;
+- los nombres sean claros;
+- el ejemplo sea lo bastante pequeño como para discutirse en clase;
+- el estilo coincida con el resto del repositorio.
+
+Si agregas o editas tests, asegúrate de que:
+
+- refuercen la idea pedagógica del módulo;
+- no dependan de técnicas avanzadas innecesarias;
+- usen MUnit salvo que el módulo ya indique otra cosa.
+
+Si escribes documentación o comentarios, asegúrate de que:
+
+- estén en español;
+- expliquen decisiones o conceptos relevantes;
+- no conviertan el repositorio en una librería sobredocumentada.
+
+---
+
+## Qué no hacer
+
+- no introducir características avanzadas antes de tiempo;
+- no tratar este repositorio como código de producción;
+- no referenciar contenido de cátedra que no esté disponible aquí;
+- no sobre-ingenierizar ejemplos;
+- no reemplazar una solución simple y enseñable por una más sofisticada solo por ser más idiomática;
+- no documentar exhaustivamente como si esto fuera una API pública industrial.
+
+---
+
+## Referencias internas útiles
+
+Antes de hacer cambios, revisa especialmente:
+
+- `build.sbt`
+- `README.md`
+- `docs/CC3002-programa-primavera-2021-transcripcion.md`
+
+Úsalos para entender contexto y convenciones, no como plantillas de producción.
+
+---
+
+## Resumen operativo
+
+Si tienes dudas, recuerda esta regla:
+
+> En CC3002, la mejor solución no es la más avanzada, sino la que mejor enseña el concepto correcto en el momento correcto.

@@ -1,6 +1,5 @@
 /*
- * =====================================================================================
- * build.sbt — Archivo de configuración principal para un proyecto Scala con SBT.
+ * # build.sbt — Archivo de configuración principal para un proyecto Scala con SBT. #
  *
  * Este archivo define:
  *   - La versión de Scala y la organización (namespace base de los paquetes).
@@ -11,7 +10,6 @@
  *
  * Este proyecto está pensado como multi-módulo para el curso CC3002,
  * lo que permite separar los contenidos de cada clase en proyectos distintos.
- * =====================================================================================
  */
 
 // -----------------------------------------------------------------------------
@@ -121,108 +119,108 @@ lazy val inheritance = project
       moduleName := "inheritance"
   )
 
-// Subproyecto correspondiente a la clase 06: Ejercicio - Reproductor multimedia
+// Subproyecto correspondiente al material extra 05x: Ejercicio - Reproductor multimedia
 lazy val mediaPlayerExercise = project
-  .in(file("06-media-player-exercise"))
+  .in(file("05x-media-player-exercise"))
   .settings(
-      name := "media-player-exercise",
+      name := "05x-media-player-exercise",
       moduleName := "media-player-exercise"
   )
 
-// Subproyecto correspondiente a la clase 07: Sobrescritura, Sobrecarga y Búsqueda de Métodos
+// Subproyecto correspondiente a la clase 06: Sobrescritura, Sobrecarga y Búsqueda de Métodos
 lazy val overridingOverloading = project
-  .in(file("07-overriding-overloading"))
+  .in(file("06-overriding-overloading"))
   .settings(
-      name := "07-overriding-overloading",
+      name := "06-overriding-overloading",
       moduleName := "overriding-overloading"
   )
 
-// Subproyecto correspondiente a la clase 08: Encapsulamiento y principio de Liskov
+// Subproyecto correspondiente a la clase 07: Encapsulamiento y principio de Liskov
 lazy val encapsulationAndLiskov = project
-  .in(file("08-encapsulation-and-liskov"))
+  .in(file("07-encapsulation-and-liskov"))
   .settings(
-      name := "08-encapsulation-and-liskov",
+      name := "07-encapsulation-and-liskov",
       moduleName := "encapsulation-and-liskov"
   )
 
-// Subproyecto correspondiente a la clase 09: Double Dispatch
+// Subproyecto correspondiente a la clase 08: Double Dispatch
 lazy val doubleDispatch = project
-  .in(file("09-double-dispatch"))
+  .in(file("08-double-dispatch"))
   .settings(
-      name := "09-double-dispatch",
+      name := "08-double-dispatch",
       moduleName := "double-dispatch"
   )
 
-// Subproyecto correspondiente a la clase 10: Excepciones
+// Subproyecto correspondiente a la clase 09: Excepciones
 lazy val exceptions = project
-  .in(file("10-exceptions"))
+  .in(file("09-exceptions"))
   .settings(
-      name := "10-exceptions",
+      name := "09-exceptions",
       moduleName := "exceptions"
   )
 
-// Subproyecto correspondiente a la clase 11: Polimorfismo revisitado
+// Subproyecto correspondiente a la clase 10: Polimorfismo revisitado
 lazy val polymorphism = project
-  .in(file("11-polymorphism"))
+  .in(file("10-polymorphism"))
   .settings(
-      name := "11-polymorphism",
+      name := "10-polymorphism",
       moduleName := "polymorphism"
   )
 
-// Subproyecto correspondiente a la clase 13: Patrones de Diseño I: Adapter, Proxy, Observer y State
+// Subproyecto correspondiente a la clase 12: Patrones de Diseño I: Adapter, Proxy, Observer y State
 lazy val designPatterns1 = project
-  .in(file("13-design-patterns-1"))
+  .in(file("12-design-patterns-1"))
   .settings(
-      name := "13-design-patterns-1",
+      name := "12-design-patterns-1",
       moduleName := "design-patterns-1"
   )
 
-// Subproyecto correspondiente a la clase 14: Ejercicio Tamagotchi
+// Subproyecto correspondiente a la clase 13: Ejercicio Tamagotchi
 lazy val tamagotchiExercise = project
-  .in(file("14-tamagotchi-exercise"))
+  .in(file("13-tamagotchi-exercise"))
   .dependsOn(designPatterns1)
   .settings(
-      name := "14-tamagotchi-exercise",
+      name := "13-tamagotchi-exercise",
       moduleName := "tamagotchi-exercise"
   )
 
-// Subproyecto correspondiente a la clase 15: Patrones de Diseño II - Template, Composite, Null, Factory, Singleton y Flyweight
+// Subproyecto correspondiente a la clase 14: Patrones de Diseño II - Template, Composite, Null, Factory, Singleton y Flyweight
 lazy val designPatterns2 = project
-  .in(file("15-design-patterns-2"))
+  .in(file("14-design-patterns-2"))
   .settings(
-      name := "15-design-patterns-2",
+      name := "14-design-patterns-2",
       moduleName := "design-patterns-2"
   )
 
-// Subproyecto correspondiente a la clase 17: Patrones de Diseño III - Visitor
+// Subproyecto correspondiente a la clase 15: Patrones de Diseño III - Visitor
 lazy val visitor = project
-  .in(file("17-visitor"))
+  .in(file("15-visitor"))
   .settings(
-      name := "17-visitor",
+      name := "15-visitor",
       moduleName := "visitor"
   )
 
-// Subproyecto correspondiente a la clase 18: Expression Problem
+// Subproyecto correspondiente a la clase 16: Expression Problem
 lazy val expressionProblem = project
-  .in(file("18-expression-problem"))
+  .in(file("16-expression-problem"))
   .settings(
-      name := "18-expression-problem",
+      name := "16-expression-problem",
       moduleName := "expression-problem"
   )
 
-// Subproyecto correspondiente a la clase 19: Introducción a Programación Funcional
+// Subproyecto correspondiente a la clase 17: Introducción a Programación Funcional
 lazy val introFunctional = project
-  .in(file("19-intro-functional"))
+  .in(file("17-intro-functional"))
   .settings(
-      name := "19-intro-functional",
+      name := "17-intro-functional",
       moduleName := "intro-functional"
   )
 
-// Subproyecto correspondiente a la clase 20: For-comprehensions
+// Subproyecto correspondiente a la clase 18: For-comprehensions
 lazy val forComprehensions = project
-  .in(file("20-for-comprehensions"))
+  .in(file("18-for-comprehensions"))
   .settings(
-      name := "20-for-comprehensions",
+      name := "18-for-comprehensions",
       moduleName := "for-comprehensions"
   )
 
@@ -240,8 +238,8 @@ lazy val root = project
       testing,
       programmingToAbstractions,
       inheritance,
-      overridingOverloading,
       mediaPlayerExercise,
+      overridingOverloading,
       encapsulationAndLiskov,
       doubleDispatch,
       exceptions,

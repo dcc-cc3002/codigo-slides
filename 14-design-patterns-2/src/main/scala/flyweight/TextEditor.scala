@@ -5,7 +5,7 @@ import scala.collection.mutable.ListBuffer
 import scala.io.Source
 
 @main def textEditor(): Unit =
-  val path = "15-design-patterns-2/src/main/resources/quijote.txt"
+  val path = "14-design-patterns-2/src/main/resources/quijote.txt"
 
   // noinspection SourceNotClosed
   // Nota: asumimos que el archivo siempre puede abrirse correctamente.

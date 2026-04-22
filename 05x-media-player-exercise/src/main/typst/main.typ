@@ -2,7 +2,7 @@
 #import exercise: example, project, subtask, task, todo
 
 #show: project.with(
-  title: "Clase 06: Ejercicio - Reproductor Multimedia",
+  title: "Clase 05x: Ejercicio - Reproductor Multimedia",
 
   university: [Universidad de Chile],
   faculty: [Facultad de Ciencias Físicas y Matemáticas],
